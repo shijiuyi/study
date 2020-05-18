@@ -1,0 +1,25 @@
+vhost文件配置含义是什么
+<VirtualHost *:80>
+#设置端口
+ServerName test.lesson.com
+#绑定域名
+DocumentRoot “D:/lesson”
+#指定网站根目录
+<Directory “D:/lesson”>
+#指定目录分配权限
+Require all granted
+#允许所有访问
+AllowOverride All
+#支持重写
+Allowoverride All
+#允许使用分布式文件配置
+Options Indexes FollowSymLinks ExecCGI
+#indexes可以列表显示
+#FollowSymLinks可以点击
+#Options Indexes+FollowSymLinks+ExecCGI
+Options Indexes FollowSymLinks
+#当没有首页时，就显示列表（开发阶段可以这样），FollowSymLinks可以省略
+DirectoryIndex index.html index.php
+#默认首页
+
+

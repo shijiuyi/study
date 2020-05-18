@@ -1,0 +1,18 @@
+{ret: 200, data: {currentUid: 0, albumId: 35474559, trackTotalCount: 10, sort: 0,…}}
+data: {currentUid: 0, albumId: 35474559, trackTotalCount: 10, sort: 0,…}
+ret: 200
+
+
+https://www.ximalaya.com/revision/album?albumId=35474559
+
+name: "相声"
+url: "http://www.ximalaya.com/xiangsheng/xiangsheng/"
+
+
+{name: "相声", url: "http://www.ximalaya.com/xiangsheng/xiangsheng/"}
+
+
+src: "https://aod.cos.tx.xmcdn.com/group64/M06/4F/46/wKgMaV1jx8_xdgZaAkYEb94dZH0670.m4a"
+
+
+
