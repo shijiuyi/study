@@ -1,0 +1,25 @@
+登录soc安全运维平台 ： smis.socmap.org
+
+查看监控任务是否成功 ： 
+	
+	成功：
+		显示IP， 域名（domain）数量， 显示“任务爬取成功”
+		PG数据库内monitor和show表显示当天的爬取信息，show表只显示IP和domain，monitor表显示四项IP，domain，漏洞，资讯。		
+	
+	失败：
+		1. 终端连接 ssh ubuntu@10.125.0.28
+	        2. 显示容器
+	        3. 连接容器，collection-crontab， 其他不要连， 语法：sudo docker exec  -it  collection-crontab(容器名或容器id)（de）  bash
+	              	 
+	        4. 打开DG， 连接PG数据库
+	              	1).  打开monitor表和show表
+	              	2).  在show表中将正常的收据复制，粘贴到新建的两行上，更改id，今天时间和昨天时间，在执行sql语句： SELECT setval('show_id_seq', (SELECT max(id) FROM show));
+	              	3).  在monitor表中若缺少过去的数据（例如昨天的）将正常数据复制，粘贴到新建的四行上，更改id和时间；若缺少今天的数据，就在docker容器内执行爬取操作（1 小时左右），在容器内操作语句：python -m script.project_run -r all
+
+查看docker-compose.yml文件：
+
+​		终端连接跟上面一样，
+
+​		进入工作目录，语句：cd /home/workspace/bs-intel/
+
+重启容器命令：docker-compose -f new_docker-compose-deploy.yml restart
